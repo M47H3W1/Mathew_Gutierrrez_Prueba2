@@ -14,6 +14,7 @@ function CrearCurso (props){
             nivel: props.state.nivel,
             duracion: props.state.duracion
         };
+        //Validaciones
         if (!validarId()) {
             return;
         }
@@ -26,14 +27,13 @@ function CrearCurso (props){
         if (!validarDuracion()) {
             return;
         }
-
+        //Elevacion de estado para agregar el curso
         props.agregarCurso(nuevoCurso);
         alert("Curso creado exitosamente");
-        //Validaciones
-
+        (props.setState({nombre:"", nivel:"", duracion:""}))
         //Se pasa a la lista
         handleLista();
-        (props.setState({nombre:"", nivel:"", duracion:""}))
+        
     }
 
     const navigate = useNavigate();
